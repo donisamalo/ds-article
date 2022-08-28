@@ -155,7 +155,7 @@ export default {
 
       span {
         font-size: 12px;
-        margin-left: 8px;
+        margin: 0 8px;
         color: var(--gray);
       }
 
