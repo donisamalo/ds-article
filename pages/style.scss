@@ -7,7 +7,6 @@
     }
   }
   &__article {
-    margin-bottom: 40px;
     .el-input {
       margin-bottom: 20px;
     }
@@ -16,6 +15,27 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+    }
+
+    p {
+      &.empty-state {
+        min-height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .c-spinner-loader {
+      margin: 20px auto;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .el-row {
+      margin-top: 20px;
     }
   }
 }
