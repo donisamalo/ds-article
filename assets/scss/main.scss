@@ -1,0 +1,38 @@
+@import 'variables';
+
+#__nuxt {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+  @include mq-large {
+    max-width: 960px;
+  }
+  @include mq-medium {
+    max-width: 720px;
+  }
+  @include mq-small {
+  }
+  @include mq-very-small {
+  }
+}
+
+// Global Page Transition
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}

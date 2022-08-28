@@ -2,10 +2,10 @@ const baseUrl = process.env.API_BASE_URL
 const url = `${baseUrl}/articles`
 
 export default (axios) => ({
-  getArticles(params) {
+  getAll(params) {
     return axios.get(url, { params })
   },
-  getDetailArticle(id) {
+  getDetail(id) {
     return axios.get(`${url}/${id}`)
   },
   getComments(articleId) {
