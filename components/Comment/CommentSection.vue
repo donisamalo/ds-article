@@ -3,14 +3,14 @@
     <h4>{{ comments.length }} Comments</h4>
 
     <div
-      v-for="comment in comments"
-      :key="comment.id"
+      v-for="item in comments"
+      :key="item.id"
       class="c-comment-section__list"
     >
       <el-row type="flex" justify="space-between">
         <el-row type="flex" align="bottom">
-          <h5>{{ comment.user || 'Anonymous' }}</h5>
-          <span>{{ $dayjs(comment.createdAt).fromNow() }}</span>
+          <h5>{{ item.user || 'Anonymous' }}</h5>
+          <span>{{ $dayjs(item.createdAt).fromNow() }}</span>
         </el-row>
 
         <el-row type="flex" align="middle">
@@ -19,33 +19,33 @@
             icon="el-icon-edit"
             circle
             size="mini"
-            @click="showModal(comment)"
+            @click="showModal(item)"
           ></el-button>
           <el-button
             type="danger"
             icon="el-icon-delete"
             circle
             size="mini"
-            @click="deleteComment(comment.id)"
+            @click="deleteComment(item.id)"
           ></el-button>
         </el-row>
       </el-row>
 
-      <p>{{ comment.comment }}</p>
+      <p>{{ item.comment }}</p>
     </div>
 
     <el-dialog title="Edit Comment" :visible.sync="config.isShowModal">
       <el-input
+        v-model="comment"
         type="textarea"
         :rows="4"
         placeholder="Leave your thoughts here..."
-        v-model="comment"
       >
       </el-input>
       <el-input
         v-show="!config.isAnonymously"
-        placeholder="Please input your name"
         v-model="user"
+        placeholder="Please input your name"
       ></el-input>
       <el-switch v-model="config.isAnonymously" active-text="Send anonymously">
       </el-switch>
@@ -68,6 +68,7 @@
 <script>
 export default {
   name: 'CommnentSection',
+
   props: {
     comments: {
       type: Array,
@@ -78,14 +79,7 @@ export default {
       default: false,
     },
   },
-  computed: {
-    isButtonDisabled() {
-      return (
-        !this.comment.length ||
-        (!this.config.isAnonymously && !this.user.length)
-      )
-    },
-  },
+
   data() {
     return {
       commentId: null,
@@ -97,6 +91,16 @@ export default {
       },
     }
   },
+
+  computed: {
+    isButtonDisabled() {
+      return (
+        !this.comment.length ||
+        (!this.config.isAnonymously && !this.user.length)
+      )
+    },
+  },
+
   methods: {
     showModal(selected) {
       const { id, comment, user } = selected

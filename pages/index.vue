@@ -1,7 +1,11 @@
 <template>
   <div class="p-home-page">
     <div class="p-home-page__banner">
-      <el-carousel :interval="4000" type="card" arrow="always">
+      <el-carousel
+        :interval="4000"
+        :type="width > 768 ? 'card' : null"
+        arrow="always"
+      >
         <el-carousel-item v-for="banner in banners" :key="banner.id">
           <el-image :src="banner.images" fit="contain"></el-image>
         </el-carousel-item>
@@ -92,11 +96,23 @@ export default {
       page: 1,
       limit: 10,
       title: '',
+      width: null,
       config: {
         isLoading: false,
         isShowViewMore: true,
       },
     }
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize)
+      this.width = window.innerWidth
+    })
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   },
 
   methods: {
@@ -149,6 +165,9 @@ export default {
     searchArticles() {
       this.page = 1
       this.getArticles()
+    },
+    onResize() {
+      this.width = window.innerWidth
     },
   },
 }

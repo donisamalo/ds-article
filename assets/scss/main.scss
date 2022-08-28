@@ -20,8 +20,12 @@ body {
     max-width: 720px;
   }
   @include mq-small {
+    width: calc(100% - 80px);
+    padding: 0 40px;
   }
   @include mq-very-small {
+    width: calc(100% - 40px);
+    padding: 0 20px;
   }
 }
 
@@ -34,6 +38,20 @@ body {
 
 .el-message-box {
   font-family: 'Roboto', sans-serif;
+
+  @include mq-very-small {
+    width: 100% !important;
+  }
+}
+
+.el-dialog {
+  @include mq-very-small {
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    height: 100%;
+    overflow: auto;
+  }
 }
 
 // Global Page Transition

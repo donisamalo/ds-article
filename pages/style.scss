@@ -15,6 +15,14 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+
+      @include mq-medium {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include mq-small {
+        grid-template-columns: 1fr;
+      }
     }
 
     p {
