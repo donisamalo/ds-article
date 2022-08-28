@@ -1,24 +1,9 @@
 <template>
-  <div shadow="hover" class="c-article-card">
+  <div class="c-article-card">
     <el-image :src="article.image" fit="cover"></el-image>
     <div class="c-article-card__content">
       <h5>{{ article.title }}</h5>
       <p>{{ article.previewContent }}</p>
-      <!-- <p>
-        Modi nam distinctio excepturi itaque. Tempora est asperiores illo beatae
-        adipisci ducimus ut. Et vitae eveniet quam eius. Excepturi sed odit
-        rerum ea et aut quia. Aut iste similique. Occaecati vero quaerat.\nEt
-        quia praesentium voluptatem consequatur explicabo tempore. Rerum
-        consequatur suscipit omnis quis vel. Ea nam eveniet. Et nesciunt
-        voluptatibus blanditiis.\nOmnis dolore voluptas nemo quos porro
-        explicabo eligendi. Cupiditate reiciendis similique est omnis id
-        asperiores iure. Enim fuga quod laudantium. Facere vitae eaque in
-        cupiditate. Voluptates animi sed laborum.
-      </p>
-      <el-row type="flex" justify="space-between">
-        <span>by: Emma Kessler</span>
-        <span>{{ $dayjs().format('DD MMM YYYY') }}</span>
-      </el-row> -->
     </div>
   </div>
 </template>

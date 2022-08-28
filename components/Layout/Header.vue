@@ -1,6 +1,6 @@
 <template>
   <el-header height="auto" class="c-header">
-    <el-image :src="logo"></el-image>
+    <el-image :src="logo" @click="$router.push('/')"></el-image>
   </el-header>
 </template>
 
@@ -25,6 +25,7 @@ export default {
   :deep(.el-image) {
     img {
       width: 240px;
+      cursor: pointer;
       @include mq-small {
         display: none;
       }

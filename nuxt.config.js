@@ -62,6 +62,7 @@ export default {
   dayjs: {
     locales: ['id'],
     defaultLocale: 'id',
+    plugins: ['relativeTime'],
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -76,8 +77,8 @@ export default {
   },
 
   loading: {
-    color: '#005386',
+    color: '#409EFF',
     failedColor: '#f94d63',
-    height: '4px',
+    height: '6px',
   },
 }

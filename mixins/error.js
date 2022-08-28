@@ -7,12 +7,9 @@ export default {
      * @param {Object} error error passed from axios
      */
     errorHandler(error) {
-      const { data } = error?.response || {}
-      const errData = data?.data?.[0]?.message || ''
-      const errMessage =
-        data?.error_schema?.message ||
-        'Terjadi kesalahan. Silakan coba lagi nanti.'
-      const message = errData || errMessage
+      const { data } =
+        error?.response || 'Terjadi kesalahan. Silakan coba lagi nanti.'
+      const message = data
 
       this.$message({
         message,

@@ -68,16 +68,20 @@ export default {
   name: 'HomePage',
   mixins: [errorMixin],
 
-  async asyncData({ $api }) {
-    const params = {
-      page: 1,
-      limit: 10,
-    }
-    const articles = await $api.articles.getAll(params)
-    const banners = await $api.banners.getAll()
-    return {
-      articles: articles.data,
-      banners: banners.data,
+  async asyncData({ $api, redirect }) {
+    try {
+      const params = {
+        page: 1,
+        limit: 10,
+      }
+      const articles = await $api.articles.getAll(params)
+      const banners = await $api.banners.getAll()
+      return {
+        articles: articles.data,
+        banners: banners.data,
+      }
+    } catch (error) {
+      redirect('/error')
     }
   },
 
@@ -113,7 +117,7 @@ export default {
           const { data } = await this.$api.articles.getAll(params)
 
           // Should be handled by using meta pagination object
-          if (data.length < 10) this.config.isShowViewMore = false
+          if (data.length < this.limit) this.config.isShowViewMore = false
 
           if (isViewMore) {
             this.articles.push(...data)

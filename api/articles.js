@@ -8,16 +8,16 @@ export default (axios) => ({
   getDetail(id) {
     return axios.get(`${url}/${id}`)
   },
-  getComments(articleId) {
+  getComment(articleId) {
     return axios.get(`${url}/${articleId}/comments`)
   },
   postComment({ articleId, payload }) {
-    return axios.get(`${url}/${articleId}/comments`, payload)
+    return axios.post(`${url}/${articleId}/comments`, payload)
   },
   updateComment({ articleId, commentId, payload }) {
-    return axios.put(`${url}/${articleId}/comment/${commentId}`, payload)
+    return axios.put(`${url}/${articleId}/comments/${commentId}`, payload)
   },
   deleteComment({ articleId, commentId }) {
-    return axios.delete(`${url}/${articleId}/comment/${commentId}`)
+    return axios.delete(`${url}/${articleId}/comments/${commentId}`)
   },
 })

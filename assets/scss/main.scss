@@ -13,8 +13,6 @@ body {
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
-  z-index: 1;
-  position: relative;
   @include mq-large {
     max-width: 960px;
   }
@@ -25,6 +23,17 @@ body {
   }
   @include mq-very-small {
   }
+}
+
+// Element UI
+.el-textarea {
+  textarea {
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+.el-message-box {
+  font-family: 'Roboto', sans-serif;
 }
 
 // Global Page Transition
