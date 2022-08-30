@@ -1,6 +1,6 @@
 <template>
   <el-footer height="auto" class="c-footer">
-    Copyright &copy; 2022 DS'Article
+    Copyright &copy; {{ $dayjs().year() }} DS'Article
   </el-footer>
 </template>
 
